@@ -884,3 +884,7 @@ a:focus {
 }
 
 
+.commenter-img{
+  max-width: 180px;
+  max-height: 180px;
+}

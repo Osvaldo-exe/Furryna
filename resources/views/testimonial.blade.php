@@ -125,24 +125,19 @@
                     <i class="fa fa-quote-left" aria-hidden="true"></i>
                   </p>
                   <p>
-                    It is a long established fact that a reader will be distracted by the readable content of a page
-                    when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                    distribution of letters, as opposed to using 'Content here, content here', making it lookIt is a
-                    long established fact that a reader will be distracted by the readable content of a page when
-                    looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                    distribution of letters, as opposed to using 'Content here, content here', making it look
+                    Well I this shop has many events that reduce the items' price greatly, I'll give it a ten.
                   </p>
                 </div>
                 <div class="client-id">
                   <div class="img-box">
-                    <img src="images/client.jpg" alt="">
+                    <img src="images/client.jpg" class="commenter-img" alt="">
                   </div>
                   <div class="name">
                     <h5>
                       James Dew
                     </h5>
                     <h6>
-                      Photographer
+                      Normal Human
                     </h6>
                   </div>
                 </div>
@@ -157,24 +152,19 @@
                     <i class="fa fa-quote-left" aria-hidden="true"></i>
                   </p>
                   <p>
-                    It is a long established fact that a reader will be distracted by the readable content of a page
-                    when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                    distribution of letters, as opposed to using 'Content here, content here', making it lookIt is a
-                    long established fact that a reader will be distracted by the readable content of a page when
-                    looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                    distribution of letters, as opposed to using 'Content here, content here', making it look
+                    Cool dude, this site sells cheap dog food for my Rover
                   </p>
                 </div>
                 <div class="client-id">
                   <div class="img-box">
-                    <img src="images/client.jpg" alt="">
+                    <img src="images/Saitama.PNG" class="commenter-img" alt="">
                   </div>
                   <div class="name">
                     <h5>
-                      James Dew
+                      Saitama
                     </h5>
                     <h6>
-                      Photographer
+                      Hero
                     </h6>
                   </div>
                 </div>
@@ -189,24 +179,19 @@
                     <i class="fa fa-quote-left" aria-hidden="true"></i>
                   </p>
                   <p>
-                    It is a long established fact that a reader will be distracted by the readable content of a page
-                    when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                    distribution of letters, as opposed to using 'Content here, content here', making it lookIt is a
-                    long established fact that a reader will be distracted by the readable content of a page when
-                    looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                    distribution of letters, as opposed to using 'Content here, content here', making it look
+                    Wow, Bond like the food it sells Waku-Waku
                   </p>
                 </div>
                 <div class="client-id">
                   <div class="img-box">
-                    <img src="images/client.jpg" alt="">
+                    <img src="images/Anya.jpeg" class="commenter-img" alt="">
                   </div>
                   <div class="name">
                     <h5>
-                      James Dew
+                      Anya
                     </h5>
                     <h6>
-                      Photographer
+                      Student
                     </h6>
                   </div>
                 </div>
