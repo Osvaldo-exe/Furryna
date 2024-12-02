@@ -1,0 +1,133 @@
+:root {
+    --c-action-primary: #2e44ff;
+    --c-action-primary-accent: #e9e5ff;
+    --c-action-secondary: #e5e5e5;
+    --c-text-primary: #0d0f21;
+    --c-text-secondary: #6a6b76;
+    --c-text-3: #eeeeee;
+    --c-background-primary: #d0d1de;
+}
+  
+body {
+    font-family: "Inter", sans-serif;
+    color: var(--c-text-primary);
+    background-color: var(--c-background-primary);
+    line-height: 1.5;
+}
+  
+input, button, select, textarea {
+    font: inherit;
+}
+  
+.modal {
+    width: 90%;
+    max-width: 400px;
+    max-height: 40rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5vh;
+    margin-bottom: 10vh;
+    background-color: #4369c1;
+    border-radius: 0.5rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    display: block;
+    position: absolute;
+    left: 40rem;
+}
+  
+.modal-body {
+    padding: 1rem 1.5rem;
+}
+  
+.Input-Form {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+  
+.Font-Title-InputForm {
+    margin-top: 10px;
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    color: var(--c-text-3);
+}
+  
+.upload-area {
+    margin-top: 1.25rem;
+    border: none;
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23ccc' stroke-width='3' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+    background-color: #edededaf;
+    padding: 3rem;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+.upload-area.dragging {
+    background-color: var(--c-action-primary-accent);
+    border: 2px dashed var(--c-action-primary);
+    color: var(--c-action-primary);
+}
+  
+.upload-area:hover, .upload-area:focus {
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%232e44ff' stroke-width='3' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+    cursor: pointer;
+}
+  
+.upload-area-icon {
+    display: block;
+    width: 2.25rem;
+    height: 2.25rem;
+}
+
+.upload-area-icon svg {
+    max-height: 100%;
+    max-width: 100%;
+}
+  
+.upload-area-title {
+    margin-top: 1rem;
+    display: block;
+    font-weight: 700;
+    color: var(--c-text-primary);
+}
+  
+.upload-area-description {
+    display: block;
+    color: var(--c-text-secondary);
+}
+
+.upload-area-description strong {
+    color: var(--c-action-primary);
+    font-weight: 700;
+}
+  
+  .modal-footer {
+    padding: 1rem 1.5rem 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .modal-footer [class*=btn-] {
+    margin-left: 0.75rem;
+  }
+  
+  .btn-secondary, .btn-primary {
+    cursor: pointer;
+    padding: 0.3rem 0.8rem;   
+    font-weight: 500;
+    border: 2px solid var(--c-action-secondary);
+    border-radius: 0.25rem;
+    background-color: #3577d8;
+    transition-duration: 0.4s;
+  }
+  
+  .btn-secondary:hover, .btn-primary:hover {
+    background-color: #e5d630;
+  }
