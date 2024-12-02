@@ -105,7 +105,7 @@
   <!-- about section -->
 
   <section class="about_section">
-    <div class="container-fluid  ">
+    <div class="container-fluid" style="margin-top: 2rem">
       <div class="row">
         <div class="col-md-5 ml-auto">
           <div class="detail-box pr-md-3">
@@ -115,7 +115,7 @@
               </h2>
             </div>
             <p>
-              Hello, I'm Furina the former Hydro Archon. After my retirement as the Hydro Archon, I decided to open a online shop. Feel free to explore and purchase our products. If you have any question or suggestion, feel free to leave a message to us
+              Welcome to Furryna, Feel free to explore and purchase our products. If you have any question or suggestion, feel free to leave a message to us
             </p>
             <a href="">
               Read More
@@ -124,7 +124,7 @@
         </div>
         <div class="col-md-6 px-0">
           <div class="img-box">
-            <img src="images/splashart.jpg_large" alt="">
+            <img src="images/CatBlack.jpeg" alt="">
           </div>
         </div>
       </div>
