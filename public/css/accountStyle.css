@@ -1,6 +1,7 @@
 .accountBody{
     display: flex;
     background-size: cover;
+    background-color: #d0d1de;
 }
 
 nav{
@@ -28,10 +29,15 @@ nav{
     width: 170px;
 }
 
-.navbar-brand{
-    font-size: 2rem;
-    margin: 1rem 0 1rem 0;
-    padding-bottom: 0;
+#navbar-brand{
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+    font-size: 28px;
+}
+
+#navbar-brand span {
+    color: #ffffff;
 }
 
 .nav-list{
@@ -40,11 +46,32 @@ nav{
     list-style: none;
     margin-left: 0;
     justify-content: left;
+    
 }
 
 .nav-list a{
     padding-left: 0;
     font-size: larger;
+    color: #fff;
+}
+
+.nav-list a:hover, .nav-list.active a{
+    color: #f3c93e;
+}
+
+#Logout{
+    all: unset;
+    position: fixed;
+    bottom: 10px;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-size: larger;
+    cursor: pointer;
+}
+
+#Logout:hover{
+    color: #f3c93e;
 }
 
 .inputForm{
@@ -65,4 +92,12 @@ nav{
 #accountContent{
     width: 100vw;
     margin-top: 15rem;
+}
+
+.profile-container{
+    width: 100vw;
+    height: 100vh;
+    justify-items: center;
+    align-content: center;
+    background-color: #d0d1de;
 }

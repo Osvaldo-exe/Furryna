@@ -8,7 +8,7 @@
   <!-- Mobile Metas -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <!-- Site Metas -->
-  <link rel="icon" href="C:\Users\ASUS\Furryna\public\images\fevicon.png" type="image/gif" />
+  <link rel="icon" href="C:\Users\ASUS\Furryna\public\images/Web-Images\fevicon.png" type="image/gif" />
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
@@ -52,13 +52,13 @@
               </button>
             </from>
             <div class="user_option_box">
-              <a href="/Account" class="account-link">
+              <a href="{{ Route('MyProfile') }}" class="account-link">
                 <i class="fa fa-user" aria-hidden="true"></i>
                 <span>
                   My Account
                 </span>
               </a>
-              <a href="" class="cart-link">
+              <a href="{{ Route('Cart') }}" class="cart-link">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                 <span>
                   Cart
@@ -124,7 +124,7 @@
         </div>
         <div class="col-md-6 px-0">
           <div class="img-box">
-            <img src="images/CatBlack.jpeg" alt="">
+            <img src="images/Web-Images/CatBlack.jpeg" alt="">
           </div>
         </div>
       </div>

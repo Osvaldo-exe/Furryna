@@ -8,7 +8,7 @@
   <!-- Mobile Metas -->
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <!-- Site Metas -->
-  <link rel="icon" href="images/fevicon.png" type="image/gif" />
+  <link rel="icon" href="images/Web-Images/Web-images/Web-Images/fevicon.png" type="image/gif" />
   <meta name="keywords" content="" />
   <meta name="description" content="" />
   <meta name="author" content="" />
@@ -33,7 +33,6 @@
 </head>
 
 <body>
-
   <div class="hero_area">
     <!-- header section strats -->
     <header class="header_section">
@@ -52,13 +51,13 @@
               </button>
             </from>
             <div class="user_option_box">
-              <a href="/Account" class="account-link">
+              <a href="{{ route('MyProfile')}}" class="account-link">
                 <i class="fa fa-user" aria-hidden="true"></i>
                 <span>
                   My Account
                 </span>
               </a>
-              <a href="" class="cart-link">
+              <a href="{{ Route('Cart') }}" class="cart-link">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                 <span>
                   Cart
@@ -122,7 +121,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="img-box">
-                    <img src="images/Furina.png" alt="">
+                    <img src="images/Web-Images/Furina.png" alt="">
                   </div>
                 </div>
               </div>
@@ -146,7 +145,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="img-box">
-                    <img src="images/Bengong.png" alt="">
+                    <img src="images/Web-Images/Bengong.png" alt="">
                   </div>
                 </div>
               </div>
@@ -207,7 +206,7 @@
         </div>
         <div class="col-md-6 px-0">
           <div class="img-box">
-            <img src="images/CatBlack.jpeg" alt="">
+            <img src="images/Web-Images/CatBlack.jpeg" alt="">
           </div>
         </div>
       </div>
@@ -229,7 +228,7 @@
         <div class="col-md-4">
           <div class="box ">
             <div class="img-box">
-              <img src="images/w1.png" alt="">
+              <img src="images/Web-Images/w1.png" alt="">
             </div>
             <div class="detail-box">
               <h5>
@@ -244,7 +243,7 @@
         <div class="col-md-4">
           <div class="box ">
             <div class="img-box">
-              <img src="images/w2.png" alt="">
+              <img src="images/Web-Images/w2.png" alt="">
             </div>
             <div class="detail-box">
               <h5>
@@ -259,7 +258,7 @@
         <div class="col-md-4">
           <div class="box ">
             <div class="img-box">
-              <img src="images/w3.png" alt="">
+              <img src="images/Web-Images/w3.png" alt="">
             </div>
             <div class="detail-box">
               <h5>
@@ -304,7 +303,7 @@
                 </div>
                 <div class="client-id">
                   <div class="img-box">
-                    <img src="images/client.jpg" class="commenter-img" alt="">
+                    <img src="images/Web-Images/client.jpg" class="commenter-img" alt="">
                   </div>
                   <div class="name">
                     <h5>
@@ -331,7 +330,7 @@
                 </div>
                 <div class="client-id">
                   <div class="img-box">
-                    <img src="images/Saitama.PNG" class="commenter-img" alt="">
+                    <img src="images/Web-Images/Saitama.PNG" class="commenter-img" alt="">
                   </div>
                   <div class="name">
                     <h5>
@@ -358,7 +357,7 @@
                 </div>
                 <div class="client-id">
                   <div class="img-box">
-                    <img src="images/Anya.jpeg" class="commenter-img" alt="">
+                    <img src="images/Web-Images/Anya.jpeg" class="commenter-img" alt="">
                   </div>
                   <div class="name">
                     <h5>
@@ -494,13 +493,14 @@
     </div>
   </section>
 
-  <!-- end info_section -->
+  @if (session('success'))
+    <script>
+      alert('{{ session('success') }}');
+    </script>
+  @endif
 
-  <!-- jQery -->
   <script src="js/jquery-3.4.1.min.js"></script>
-  <!-- bootstrap js -->
   <script src="js/bootstrap.js"></script>
-  <!-- custom js -->
   <script src="js/custom.js"></script>
 
 

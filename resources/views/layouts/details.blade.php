@@ -43,7 +43,7 @@
                 </span>
               </a>
               <div class="user_option_box">
-                <a href="/Account" class="account-link">
+                <a href="{{route('MyProfile')}}" class="account-link">
                   <i class="fa fa-user" aria-hidden="true"></i>
                   <span>
                     My Account
@@ -73,7 +73,7 @@
     <div class="productDetails">
       <div class="detailsBox">
         <div class="detailsImage">
-          <img src="../images/<?php echo htmlspecialchars($products->image); ?>" alt="">
+          <img src="../images/Products-Images/<?php echo htmlspecialchars($products->image); ?>" alt="">
         </div>
         <div class="detailsInfo">
             <h class="navbar-brand">

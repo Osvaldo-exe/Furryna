@@ -488,7 +488,7 @@ a:focus {
 
 .product_section .box .img-box .add_cart_btn:hover {
   background-color: #f3c93e;
-  color: #ffffff;
+  color: black;
 }
 
 .product_section .box .img-box::before {
@@ -883,8 +883,8 @@ a:focus {
   display: flex;
 }
 
-
 .commenter-img{
   max-width: 180px;
   max-height: 180px;
 }
+
