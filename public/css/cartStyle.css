@@ -1,121 +1,111 @@
-/* style.css */
-body {
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f9;
-}
-.container {
+.contentContainer{
     width: 100vw;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-}
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #333;
-}
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-th, td {
-    padding: 12px;
-    text-align: left;
-}
-th {
-    background-color: #6bb8d2;
-    color: #333;
-    border-bottom: 1px solid #00000046;
-}
-
-tr{
-    border-bottom: 1px solid #00000046;
-    background-color: #f4f4f9;
-}
-
-
-tr:hover {
-    background-color: #f1f1f1;
-}
-
-.product-row {
+    height: 100vh;
     display: flex;
+    background-color: rgb(105,138,232);
+    justify-content: center;
+}
+
+.contentContainer div{
+    margin-top: 75px;
+    gap: 2rem;
+}
+
+.goToLogin{
+    color: #f3c93e;
+}
+
+.product-row .cart{
+    background-color: black;
+}
+
+.cartTable{
+    width: 40rem;
+    max-width: 40rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-left: 0px;
+}
+
+tr td{
+    color: black;
     align-items: center;
+    text-align: center;
+    justify-content: center;
 }
 
-.product-image {
-    width: 50px;
-    height: 50px;
-    margin-right: 15px;
-    border-radius: 8px;
-    object-fit: cover;
-    background-color: #eaeaea;
+thead tr th{
+    background-color: rgb(26,31,104);
+    color: white;
 }
-.action-buttons {
-    display: flex;
-    gap: 10px;
+
+#quantity{
+    width: 3rem;
+    text-align: center;
 }
-.btn {
+
+h2{
+    margin-top: 1rem;
+    margin-left: 2rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    color: black;
+}
+
+.summary{
+    background-color: rgba(255, 255, 255, 0.89);
+    width: 30rem;
+    height: 200px;
+}
+
+
+.interaction button{
     padding: 8px 12px;
     font-size: 14px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: 0.2s;
 }
-.btn-update {
-    background-color: #007bff;
+
+.interaction button:hover{
+    background-color: grey;
     color: white;
 }
-.btn-delete {
-    background-color: #dc3545;
+
+input{
+    width: 2rem;
+    text-align: center;
+}
+
+#total-price{
+    color: black;
+}
+
+.priceSummary{
+    color: black;
+    margin: 0 2rem;
+    margin-top: 0;
+}
+
+.priceSummary div{
+    margin-top: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkout{
+    display: flex;
+    justify-self: right;
+    margin: 1rem 2rem;
+    margin-top: 20px;
+    background-color: #007BFF;
     color: white;
-}
-.myProductContainer{
-    margin: 0;
-    padding: 0;
-    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-.buttonContainer{
-    margin: 0px;
-    align-items: center;
-    padding: 1rem;
-    width: 100vw;
-    height: auto;
-    background-color: rgb(53,59,167);
-}
-
-.cardContainer{
-    justify-content: center;
-    margin-top: 1rem;
-    width: 90rem;
-}
-
-.cardContainer .content{
-    justify-content: center;
-    width: 75rem;
-}
-
-.btn_box{
-    display: inline-block;
-    padding: 10px 45px;
-    background-color: rgb(118,97,204);
-    color: #ffffff;
-    border-radius: 5px;
-    border: 1px solid rgb(48,53,76);
-    -webkit-transition: all .3s;
-    transition: all .3s;
-    margin-top: 15px;
-}
-
-.btn_box:hover {
+.checkout:hover {
     background-color: #f3c93e;
-    color: rgb(26,31,104);
-    border-color: rgb(247,218,169);
-}
-
-table{
-    margin-left: 4rem;
+    color: black;
 }

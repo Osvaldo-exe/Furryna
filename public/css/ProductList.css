@@ -1,0 +1,134 @@
+/* style.css */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+.container {
+    width: 100vw;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+th {
+    background-color: #6bb8d2;
+    color: #333;
+    border-bottom: 1px solid #00000046;
+}
+
+tr{
+    border-bottom: 1px solid #00000046;
+    background-color: #f4f4f9;
+}
+
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+.product-row {
+    display: flex;
+    align-items: center;
+}
+
+.product-image {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+    border-radius: 8px;
+    object-fit: cover;
+    background-color: #eaeaea;
+}
+.action-buttons {
+    display: flex;
+    gap: 10px;
+}
+.btn {
+    padding: 8px 12px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.btn-update {
+    background-color: #007bff;
+    color: white;
+}
+.btn-delete {
+    background-color: #dc3545;
+    color: white;
+}
+.myProductContainer{
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+}
+
+.buttonContainer{
+    margin: 0px;
+    align-items: center;
+    padding: 1rem;
+    width: 100vw;
+    height: auto;
+    background-color: rgb(53,59,167);
+}
+
+.cardContainer{
+    justify-content: center;
+    margin-top: 1rem;
+    width: 90rem;
+}
+
+.cardContainer .content{
+    justify-content: center;
+    width: 75rem;
+}
+
+.btn_box{
+    display: inline-block;
+    padding: 10px 45px;
+    background-color: rgb(118,97,204);
+    color: #ffffff;
+    border-radius: 5px;
+    border: 1px solid rgb(48,53,76);
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    margin-top: 15px;
+}
+
+.btn_box:hover {
+    background-color: #f3c93e;
+    color: rgb(26,31,104);
+    border-color: rgb(247,218,169);
+}
+
+table{
+    padding: 0;
+}
+
+thead th{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.wrapper{
+    margin-left: 5rem;
+    padding: 0;
+    max-height: 30rem;
+    overflow: auto;
+}

@@ -7,11 +7,19 @@
     <title>Document</title>
 </head>
 <body>
-    <?php foreach ($products as $items): ?>
+    <?php 
+        $counter = 0;
+
+        foreach ($products as $items) {
+            if ($counter >= $maxIterations) {
+                break; 
+            }
+            $counter++;
+    ?>
         <div class="col-sm-6 col-lg-4">
             <div class="box">
                 <div class="img-box">
-                    <img src="../images/Products-Images/<?php echo htmlspecialchars($items->image); ?>" alt="">
+                    <img src    ="../images/Products-Images/<?php echo htmlspecialchars($items->image); ?>" alt="">
                         <a href="{{ route('products.details', $items->id) }}" class="add_cart_btn">
                             Details
                         </a>         
@@ -35,6 +43,6 @@
                 </div>
             </div>
         </div>
-    <?php endforeach; ?>
+    <?php }?>
 </body>
 </html>

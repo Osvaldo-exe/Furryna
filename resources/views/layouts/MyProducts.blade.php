@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="/icon/css/all.min.css">
     <link rel="stylesheet" href="/css/responsive.css"/>
     <link rel="stylesheet" href="/css/accountStyle.css">
-    <link rel="stylesheet" href="/css/cartStyle.css">
+    <link rel="stylesheet" href="/css/ProductList.css">
 </head>
 <body class="accountBody">
     <nav>
@@ -29,7 +29,7 @@
                                 <a class="nav-link" href="{{ route('MyProfile') }}">My Profile <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-list active">
-                                <a class="nav-link" href="{{ route('MyProducts')}}"> My Products </a>
+                                <a class="nav-link" href="{{ route('MyProducts') }}"> My Products </a>
                             </li>
                             <li class="nav-list">
                                 <a class="nav-link" href="{{ route('Mail') }}">Mail</a>
@@ -52,14 +52,7 @@
             </div>
         </div>
     </nav>
-    <div>
-        @auth
-        {{-- @include('layouts.uploadProductForm') --}}
-            {{-- @include('layouts.myProductList') --}}
-            @include($includeView)
-        @else
-            @include('layouts.loginWarning')
-        @endauth   
-    </div>
+
+    @include($includeView)   
 </body>
 </html>

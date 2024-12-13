@@ -9,7 +9,7 @@ class Product extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['product_name', 'price', 'product_description', 'image'];
+    protected $fillable = ['product_name', 'product_owner', 'price', 'product_description', 'image'];
 
     protected function casts(): array
     {
@@ -17,6 +17,11 @@ class Product extends Model
             'created_at' => 'datetime',
             'updated_at' => 'datetime',
         ];
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(user::class, 'product_owner', 'email');
     }
 }
 

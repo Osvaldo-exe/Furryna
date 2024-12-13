@@ -19,6 +19,8 @@
     <link href="css/style.css" rel="stylesheet" />
     <!-- responsive style -->
     <link href="css/responsive.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/cartStyle.css">
+    <link rel="stylesheet" href="../css/productList.css">
 
 </head>
 <body>
@@ -28,11 +30,11 @@
           <div class="header_top">
             <div class="container-fluid">
               <div class="top_nav_container">
-                <h class="navbar-brand" href="">
+                <a class="navbar-brand" href="{{route('Home')}}">
                   <span>
                     Furryna
                   </span>
-                </h>
+                </a>
                 <from class="search_form">
                   <input type="text" class="form-control" placeholder="Search here...">
                   <button class="" type="submit">
@@ -46,22 +48,16 @@
                       My Account
                     </span>
                   </a>
-                  <a href="{{ Route('Cart') }}" class="cart-link">
-                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                    <span>
-                      Cart
-                    </span>
-                  </a>
                 </div>
               </div>
-    
             </div>
           </div>
-          <div class="header_bottom">
-            <div class="container-fluid">
-              <nav class="navbar navbar-expand-lg custom_nav-container ">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class=""> </span>
-                </button>
+        </header>
+        <div class="contentContainer">
+          <div style="display: flex">
+            @include($includeView) 
+          </div>
+        </div> 
+    </div>
 </body>
 </html>

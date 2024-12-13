@@ -28,7 +28,7 @@
                                 <a class="nav-link" href="{{ route('MyProfile') }}">My Profile <span class="sr-only">(current)</span></a>
                             </li>
                             <li class="nav-list">
-                                <a class="nav-link" href="{{ route('MyProducts')}}"> My Products </a>
+                                <a class="nav-link" href="{{ route('MyProducts') }}"> My Products </a>
                             </li>
                             <li class="nav-list">
                                 <a class="nav-link" href="{{ route('Mail') }}">Mail</a>

@@ -108,11 +108,6 @@
   <section class="product_section layout_padding">
     <div class="row">@include('layouts.productCard')</div>
   </div>
-  <div class="btn_box">
-    <a href="" class="view_more-link">
-      View More
-    </a>
-  </div>
 </div>
 </section>
 

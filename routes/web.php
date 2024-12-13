@@ -63,13 +63,9 @@ Route::get('/Account/Mail', function () {
 })->name('Mail');
 
 // CART PAGE
-Route::get('/Cart', function () {
-    return view('cart');
-})->name('Cart');
+Route::get('/Cart', [ProductsController::class, 'Cart'])->name('Cart');
 
-Route::get('/Prototype', function () {
-    return view('layouts/uploadProductForm');
-});
+Route::post('/cart', [ProductsController::class, 'addToCart'])->name('addToCart');
 
 
 Route::get('/', [ProductsController::class, 'index']);
@@ -78,7 +74,7 @@ Route::get('/Home', [ProductsController::class, 'index'])->name('Home');
 
 Route::get('/Product', [ProductsController::class, 'Product'])->name('Product');
 
-Route::get('/Product/{product}', [ProductsController::class, 'detail'])->name('products.details');
+Route::get('/Product/{id}', [ProductsController::class, 'detail'])->name('products.details');
 
 Route::post('/Product', [ProductsController::class, 'store'])->name('products.store');
 

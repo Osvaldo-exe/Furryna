@@ -114,9 +114,6 @@
                     <p style="color: rgb(0, 0, 0)">
                       My Name is Furina the owner of the shop
                     </p>
-                    <a href="">
-                      Read More
-                    </a>
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -138,9 +135,6 @@
                     <p style="color: black">
                       Furryna is the shop that sell pet accesories
                     </p>
-                    <a href="">
-                      Read More
-                    </a>
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -174,7 +168,7 @@
         <div class="row">@include('layouts.productCard')</div>
       </div>
       <div class="btn_box">
-        <a href="" class="view_more-link">
+        <a href="{{route('Product')}}" class="view_more-link">
           View More
         </a>
       </div>
@@ -197,7 +191,6 @@
             </div>
             <p>
               Welcome to Furryna, Feel free to explore and purchase our products. If you have any question or suggestion, feel free to leave a message to us
-
             </p>
             <a href="">
               Read More

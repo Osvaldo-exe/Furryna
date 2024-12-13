@@ -10,11 +10,11 @@
     <div class="WarningContainer">
         <div>
             <div>
-                <h1>
+                <h1 class="headline">
                     Please login to access this page...
                 </h1>
                 <span>
-                    Proceed to <a href="{{route('MyProfile')}}">login</a>
+                    Proceed to <a class="goToLogin" href="{{route('MyProfile')}}">login</a>
                 </span>
             </div>
             <img src="../images/Web-Images/3526-furina-emotional.png" alt="Oops">
@@ -43,5 +43,11 @@
     .WarningContainer div div{
         display: grid;
         justify-content: center;
+    }
+
+    .headline{
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
     }
 </style>

@@ -12,8 +12,9 @@
         <div class="modal-body">
             <form id="bestForm" action="{{route('products.store')}}" method="POST" enctype="multipart/form-data">
                 @csrf
+                <input type="hidden" value="{{ Auth::user()->email }}" name="product_owner">
                 <label>
-                    <h2 class="Font-Title-InputForm">Product Name</h2>
+                    <h2 class="Font-Title-InputForm" >Product Name</h2>
                     <input class="Input-Form" type="text" placeholder="Enter product name here" name="product_name">
                 </label>
                 <label>
@@ -41,14 +42,14 @@
 
                 <div class="modal-footer">
                     <a class="btn-secondary" id="cancel-button" href="{{route('MyProducts')}}">Cancel</a>
-                    <button class="btn-primary" type="submit" id="upload-button">Submit</button>
+                    <button class="btn-primary" type="submit" id="upload-button">Add Product</button>
                 </div>
             </form>
         </div>
     </div>
     
     <script>
-       const uploadArea = document.querySelector('#upload-area');
+        const uploadArea = document.querySelector('#upload-area');
         const fileInput = document.querySelector('#file-input');
         const previewContainer = document.querySelector('#preview-container');
         const uploadTitle = document.querySelector('#upload-title');
@@ -115,11 +116,11 @@
             'video/quicktime',
             'video/wmv'
         ];
-        const maxFiles = 5;
+        const maxFiles = 1;
 
         function handleFiles(files) {
             if (selectedFiles.length + files.length > maxFiles) {
-                alert(`You can only upload up to ${maxFiles} files. Please remove some files before adding new ones.`);
+                alert(`You can only upload ${maxFiles} file. Please remove some files before adding new ones.`);
                 return;
             }
 
@@ -132,8 +133,8 @@
                             const img = document.createElement('img');
                             img.src = e.target.result;
                             img.alt = file.name;
-                            img.style.maxWidth = '100px';
-                            img.style.maxHeight = '80px';
+                            img.style.maxWidth = '300px';
+                            img.style.maxHeight = '150px';
                             img.style.objectFit = 'cover';
                             img.style.border = '1px solid #ccc';
                             img.style.borderRadius = '5px';

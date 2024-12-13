@@ -20,6 +20,7 @@ input, button, select, textarea {
   
 .modal {
     width: 90%;
+    height: auto;
     max-width: 400px;
     max-height: 40rem;
     margin-left: auto;
@@ -136,4 +137,5 @@ input, button, select, textarea {
 label, fieldset{
     min-width: 352px;
 }
+
 

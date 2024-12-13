@@ -3,35 +3,63 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\models\User;
 use App\Models\Product;
+use App\Models\cart;
+use phpDocumentor\Reflection\Types\Nullable;
 
 class ProductsController extends Controller
 {
     public function index()
     {
         $products = Product::all();
+        $maxIterations = 6;
 
-        return view('home', compact('products'));
+        return view('home', compact('products','maxIterations'));
     }
 
     public function Product()
     {
         $products = Product::all();
+        $maxIterations = 'PHP_INT_MAX';
 
-        return view('product', compact('products'));
+        return view('product', compact('products', 'maxIterations'));
     }
 
-    public function myProduct()
+    public function myProduct(Request $request)
     {
-        $products = Product::all();
-        $includeView = 'layouts.myProductList';
+        if(Auth::check()){
+            $user = Auth::user();
+            $includeView = 'layouts.myProductList';
+            $products = Product::where('product_owner',$user->email)->get();
+            return view('layouts/MyProducts', compact('products', 'includeView'));
+        }
+        else{
+            $includeView = 'layouts.loginWarning';
+            return view('layouts/MyProducts', compact('includeView'));
+        }
 
-        return view('layouts/MyProducts', compact('products', 'includeView'));
+    }
+
+    public function Cart(request $request)
+    {
+        if(Auth::check()){
+            $user = Auth::user();
+            $includeView = 'layouts.cartItem';
+            $cart = cart::where('user_id',$user->id)->get();
+            return view('Cart', compact('cart','includeView'));
+        }
+        else{
+            $includeView = 'layouts.loginWarning';
+            return view('Cart', compact('includeView'));
+        }
+        
     }
 
     public function detail($product)
     {
-        $products = Product::findOrFail($product);
+        $products = Product::with('User')->findOrFail($product);
         
         return view('layouts/details', compact('products'));
     }
@@ -49,6 +77,7 @@ class ProductsController extends Controller
         $product->product_name = $request->product_name;
         $product->price = $request->price;
         $product->product_description = $request->product_description;
+        $product->product_owner = $request->product_owner;
 
         $imageName = $request->image->getClientOriginalName();  
         $request->image->move(public_path('images/Products-Images'), $imageName);
@@ -64,5 +93,17 @@ class ProductsController extends Controller
         Product::destroy($id);
 
         return redirect()->route('MyProducts');
+    }
+
+    public function addToCart(request $request)
+    {
+        $cart = new cart();
+        $cart->user_id = auth()->id();
+        $cart->product_id = $request->product_id;
+        $cart->quantity = $request->quantity;
+
+        $cart->save();
+
+        return redirect()->route('Cart');
     }
 }
