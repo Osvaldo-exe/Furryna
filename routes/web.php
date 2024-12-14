@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MailController;
 
 // MAIN PAGE
 Route::get('/', function () {
@@ -58,15 +59,14 @@ Route::get('/Account/MyProducts/Add', function () {
 Route::delete('/Account/MyProducts/{id}', [ProductsController::class, 'drop'])->name('dropProduct');
 
 // Mail page
-Route::get('/Account/Mail', function () {
-    return view('layouts.Mail');
-})->name('Mail');
+Route::get('/Mail', [MailController::class, 'mailReceived'])->name('Mail');
 
 // CART PAGE
 Route::get('/Cart', [ProductsController::class, 'Cart'])->name('Cart');
 
 Route::post('/cart', [ProductsController::class, 'addToCart'])->name('addToCart');
 
+Route::post('/Cart', [MailController::class, 'sendMail'])->name('Checkout');
 
 Route::get('/', [ProductsController::class, 'index']);
 

@@ -53,7 +53,7 @@
     </nav>
     
     @auth
-        
+        @include('layouts.mailBody')
     @else
         @include('layouts.loginWarning')
     @endauth 

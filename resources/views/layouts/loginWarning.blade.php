@@ -36,6 +36,7 @@
     }
 
     .WarningContainer div{
+        margin: 0;
         align-items: center;
         display: flex;
     }
@@ -47,7 +48,7 @@
 
     .headline{
         text-align: center;
-        margin-bottom: 20px;
+        margin-bottom: 0px;
         color: #333;
     }
 </style>

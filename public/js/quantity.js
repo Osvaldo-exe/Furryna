@@ -1,18 +1,20 @@
 function updateQuantity(button, change) {
     const quantityElement = document.getElementById('quantity');
-    const quantityClass = document.querySelectorAll('.quantity')
+    const quantityClass = document.querySelectorAll('.quantity');
 
     let quantity = parseInt(quantityElement.value);
     quantity = Math.max(1, quantity + change); // Prevent quantity < 1
     quantityElement.value = quantity;
     quantityClass.value = quantity;
 
+    const quant = quantityElement.value;
+
     // Update item price
 
     // Ensure the button content stays as "+" or "-"
     button.innerText = change > 0 ? "+" : "-";
-
     updateSummary();
+    return quant
 }
 
 

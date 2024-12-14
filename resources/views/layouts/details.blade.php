@@ -50,7 +50,7 @@
                     My Account
                   </span>
                 </a>
-                <a href="" class="cart-link">
+                <a href="{{route('Cart')}}" class="cart-link">
                   <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                   <span>
                     Cart
@@ -132,7 +132,6 @@
                 <button  id="baten" type="submit">Add to Cart</button>
               </form>
 
-              <!-- === Back button === -->
               <div class="back-to-shop">
                 <a href="{{route('Product')}}"><span class="text-muted"">Back to shop</span></a>
               </div>

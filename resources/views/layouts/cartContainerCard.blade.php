@@ -30,7 +30,6 @@
                     <td style="width: 650px"><?php echo htmlspecialchars($items->product_description); ?></td>
                     <td><?php echo 'Rp '.number_format(htmlspecialchars($items->price), 2,',','.') ?></td>
                     <td class='action-buttons'>
-                        <button class='btn btn-update'>Update</button>
                         <form action="{{route('dropProduct', $items->id)}}" method='POST'>
                             @csrf
                             @method('DELETE')
