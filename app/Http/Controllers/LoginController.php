@@ -28,6 +28,7 @@ class LoginController extends Controller
         $user->birthdate = $request->birthdate;
         $user->address = $request->address;
         $user->phone_number = $request->phone_number;
+        $user->profile_picture = "Profile.jpg";
 
         $user->save();
 
@@ -36,22 +37,44 @@ class LoginController extends Controller
 
     public function updateUser(Request $request, $id)
     {
+        // Validasi input, termasuk validasi untuk file gambar
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|email',
             'birthdate' => 'nullable|date',
             'phone_number' => 'nullable|digits:12',
+            'profile_picture' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // Validasi gambar
         ]);
 
+        // Cari user berdasarkan ID
         $user = User::findOrFail($id);
+
+        $imageName = $user->profile_picture;
+
+        if ($request->hasFile('profile_picture')) {
+
+            $file = $request->file('profile_picture');
+
+            $imageName = $file->getClientOriginalName();
+
+            $file->move(public_path('images/Web-Images'), $imageName);
+
+            if ($user->profile_picture && file_exists(public_path('images/Web-Images/' . $user->profile_picture))) {
+                unlink(public_path('images/Web-Images/' . $user->profile_picture));
+            }
+        }
+
+        // Update data user selain gambar
         $user->update(array_filter([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'birthdate' => $request->input('birthdate'),
             'phone_number' => $request->input('phone_number'),
+            'profile_picture' => $imageName
         ]));
 
-        return redirect()->route('Home')->with(key: 'success', value: 'Update Succesfully');
+        // Redirect ke halaman home dengan pesan sukses
+        return redirect()->route('MyProfile');
     }
 
     public function login(Request $request)
@@ -72,14 +95,17 @@ class LoginController extends Controller
 
         if (Auth::attempt($infologin)) {
             Session::put('name', Auth::user()->name);
-        
-            return redirect()->route('Home')->with('success', 'Welcome to Furryna');
+
+            if (Auth::user()->email === "admin@gmail.com"){
+                return redirect()->route('AdminProfile')->with('success', 'Welcome Admin');
+            }
+            else{
+                return redirect()->route('Home')->with('success', 'Welcome to Furryna');
+            }
         } else {
             return back()->with('error', 'Wrong email or password');
         }        
     }
-
-    
 
     public function logout(Request $request)
     {
@@ -89,5 +115,12 @@ class LoginController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('Account/MyProfile')->with('success', 'You have logout');
+    }
+
+    public function dropUser($id)
+    {
+        User::destroy($id);
+
+        return redirect()->route('MyProducts');
     }
 }

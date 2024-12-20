@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('profile_picture')->nullable(); 
+            $table->string('profile_picture')->default('Profile.jpg')->nullable(); 
             $table->string('name'); 
             $table->date('birthdate')->nullable(); 
             $table->text('address')->nullable();

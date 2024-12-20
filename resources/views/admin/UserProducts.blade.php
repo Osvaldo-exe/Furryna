@@ -34,12 +34,11 @@
                             <li class="nav-list">
                                 <a class="nav-link" href="{{ route('Mail') }}">Mail</a>
                             </li>
-
                             @auth
-                            <form action="{{ route('LogoutUser') }}" method="POST">
-                                @csrf
-                                <button id="Logout" href="#" type="submit">Logout</button>
-                            </form>
+                                <form action="{{ route('LogoutUser') }}" method="POST">
+                                    @csrf
+                                    <button id="Logout" href="#" type="submit">Logout</button>
+                                </form>
                             @endauth
                         </ul>
                     </div>

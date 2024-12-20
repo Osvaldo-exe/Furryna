@@ -32,13 +32,6 @@
                         <h5>
                             <span><?php echo 'Rp '.number_format(htmlspecialchars($items->price), 2,',','.'); ?></span> 
                         </h5>
-                        <div class="star_container">
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                            <i class="fa fa-star" aria-hidden="true"></i>
-                        </div>
                     </div>
                 </div>
             </div>

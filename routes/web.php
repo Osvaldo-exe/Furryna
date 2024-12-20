@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MailController;
+use App\Http\Middleware\CheckAdminEmail;
 
 // MAIN PAGE
 Route::get('/', function () {
@@ -42,7 +43,12 @@ Route::get('/Account/MyProfile/Login', function () {
 })->name('MyProfileLogin');
 
 Route::get('/Account/MyProfile', function () {
-    return view('MyProfile', ['includeView' => 'layouts.login']);
+    if(Auth::check() && Auth::user()->email === 'admin@gmail.com'){
+        return view('admin.AdminProfile');
+    }
+    else{
+        return view('MyProfile', ['includeView' => 'layouts.login']);
+    }
 })->name('MyProfile');
 
 Route::get('/Account/MyProfile/Sign-up', function () {
@@ -50,7 +56,7 @@ Route::get('/Account/MyProfile/Sign-up', function () {
 })->name('MyProfileSignUp');
 
 // MyProducts page
-Route::get('/Account/MyProducts', [ProductsController::class, 'myProduct'])->name('MyProducts');
+Route::get('/Account/myProducts', [ProductsController::class, 'myProduct'])->name('MyProducts');
 
 Route::get('/Account/MyProducts/Add', function () {
     return view('layouts.MyProducts', ['includeView' => 'layouts.uploadProductForm']);
@@ -67,6 +73,22 @@ Route::get('/Cart', [ProductsController::class, 'Cart'])->name('Cart');
 Route::post('/cart', [ProductsController::class, 'addToCart'])->name('addToCart');
 
 Route::post('/Cart', [MailController::class, 'sendMail'])->name('Checkout');
+
+Route::delete('/Cart/{id}', [ProductsController::class, 'dropCart'])->name('dropCart');
+
+// Admin page
+// Route::middleware('auth')->group(function () {
+//     Route::get('/Account/MyProfile/Admin', function () {
+//         return view('admin.AdminProfile');
+//     })->name('AdminProfile');
+// });
+
+Route::get('/Account/MyProfile/Admin', function () {
+    return view('admin.AdminProfile');
+})->middleware(CheckAdminEmail::class)->name('AdminProfile');
+
+Route::delete('/Account/myProducts/{id}', [LoginController::class, 'dropUser'])->name('dropUser');
+
 
 Route::get('/', [ProductsController::class, 'index']);
 

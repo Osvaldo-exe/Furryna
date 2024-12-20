@@ -31,9 +31,25 @@ class ProductsController extends Controller
     {
         if(Auth::check()){
             $user = Auth::user();
-            $includeView = 'layouts.myProductList';
             $products = Product::where('product_owner',$user->email)->get();
-            return view('layouts/MyProducts', compact('products', 'includeView'));
+
+            if($user->email === 'admin@gmail.com'){
+                $allUser = User::where('email', '!=', 'admin@gmail.com')->get(); 
+
+                foreach($allUser as $perUser){
+                    $allProduct = Product::where('product_owner',$perUser->email)->get();
+
+                    $userProducts[$perUser->email] = $allProduct;
+                }
+
+                $includeView = 'admin.UserProductList';
+                return view('admin/UserProducts', compact('products', 'includeView', 'userProducts', 'allUser'));
+                // $allProduct = Product::whereIn('product_owner', $allUser->pluck('email'))->get();
+
+            }else{
+                $includeView = 'layouts.myProductList';
+                return view('layouts/MyProducts', compact('products', 'includeView'));
+            }
         }
         else{
             $includeView = 'layouts.loginWarning';
@@ -95,12 +111,20 @@ class ProductsController extends Controller
         return redirect()->route('MyProducts');
     }
 
+    public function dropCart($id)
+    {
+        Cart::destroy($id);
+
+        return redirect()->route('Cart');
+    }
+
     public function addToCart(request $request)
     {
         $cart = new cart();
         $cart->user_id = auth()->id();
         $cart->product_id = $request->product_id;
         $cart->quantity = $request->quantity;
+        $cart->item_name = $request->product_name;
 
         $cart->save();
 

@@ -132,3 +132,15 @@ thead th{
     max-height: 30rem;
     overflow: auto;
 }
+
+.userDeleteButton{
+    background: none;
+    border: none;
+    color: navy;
+    transition: 0.2s;
+}
+
+.userDeleteButton:hover{
+    color: rgb(255, 33, 33);
+}
+

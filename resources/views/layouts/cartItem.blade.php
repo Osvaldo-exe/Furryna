@@ -7,32 +7,34 @@
     <title>Furryna</title>
 </head>
 <body>
-    <form action="{{route('Checkout')}}" method="POST" style="display: flex; gap: 3rem;">
-        @csrf
         <div class="wrapper">
             <table class="cartTable">
-                <?php foreach($cart as $items): ?>   
-                    <tr>
-                        <td> 
-                            <img src='../images/Products-Images/<?php echo htmlspecialchars($items->product->image); ?>' alt='Product Image' class='product-image'>
-                        </td>
-                        <td style="text-align: left; vertical-align:top;">
-                            <?php echo htmlspecialchars($items->product->product_name); ?>
-                        </td>
-                        <td>
-                            <div class="cart-item" style="margin-top: 0">
-                                <p class="unit-price" style="color: black;" 
-                                data-price="<?php echo htmlspecialchars($items->product->price); ?>">
-                                <?php echo 'Rp ' . number_format(floatval($items->product->price), 2, ',', '.'); ?></p>
-                                <div class="quantity-wrapper" style="margin-top: 2px; align-items: left;" class="interaction">
-                                    <button class="btn btn-sm btn-outline-secondary btn-quantity" data-change="-1">-</button>
-                                    <input type="number" class="quantity" value="1">
-                                    <button class="btn btn-sm btn-outline-secondary btn-quantity" data-change="1">+</button>
-                                </div>
-                            </div>
-                        </td>
-                        
-                    </tr>
+                <?php foreach($cart as $items):  ?>  
+                <tr class="cart-item">
+                    <td> 
+                        <img src='../images/Products-Images/<?php echo htmlspecialchars($items->product->image); ?>' alt='Product Image' class='product-image'>
+                    </td>
+                    <td style="text-align: left; vertical-align: top;">
+                        <?php echo htmlspecialchars($items->product->product_name); ?>
+                    </td>
+                    <td>
+                        <?php echo 'Rp ' . number_format(floatval($items->product->price), 2, ',', '.'); ?>
+                        <input type="hidden" class="unit-price" data-price="<?php echo htmlspecialchars($items->product->price); ?>" value="">
+                    </td>
+                    <td>
+                        <span class="quantity" style="border: 2px solid black; padding: 2px 1rem; border-radius: 3px; display: block; max-width: 4rem;">
+                            <?php echo htmlspecialchars($items->quantity); ?>
+                        </span>
+                        <input type="hidden" class="quantity" value="<?php echo htmlspecialchars($items->quantity); ?>">
+                    </td>
+                    <td>
+                        <form action="{{route('dropCart', $items->id)}}" method='POST'>
+                            @csrf
+                            @method('DELETE')
+                            <button id="baten" type="submit" style="padding: 5px 1rem;">Discard</button>
+                        </form>
+                    </td>
+                </tr>
                 <?php endforeach; ?>
             </table>
         </div>
@@ -43,16 +45,18 @@
                     <div>Subtotal: </div><span id="total-price"></span>
                 </div>
                 <div>
-                    <div>Admin Fee: </div><span> Rp 2.000,00</span>
+                    <div>Admin Fee: </div><span id="admin-price"> </span>
                 </div>
                 <div style="font-weight: bold">
                     <div>Total Harga: </div><span id="final-price">
                 </div>
             </div> 
+    <form action="{{route('Checkout')}}" method="POST" style="display: flex; gap: 3rem;" id="checkoutForm">
+            @csrf
+            @foreach ($cart as $items)
                 <input type="hidden" name="body" value="tes">
-                <input type="hidden" name="recipient_email" value="wynnie@gmail.com">
-                <input type="hidden" name="sender_email" value="<?php echo htmlspecialchars(Auth::user()->email); ?>">
-            <button type="submit">Checkout</button>
+            @endforeach
+            <button id="baten" type="submit" style="margin-left: 17rem">Checkout</button>
         </div>
     </form>
     <script src="../js/cartItem.js"></script>

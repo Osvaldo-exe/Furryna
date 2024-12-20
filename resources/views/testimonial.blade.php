@@ -45,12 +45,7 @@
                 Furryna
               </span>
             </h>
-            <from class="search_form">
-              <input type="text" class="form-control" placeholder="Search here...">
-              <button class="" type="submit">
-                <i class="fa fa-search" aria-hidden="true"></i>
-              </button>
-            </from>
+            
             <div class="user_option_box">
               <a href="{{ Route('MyProfile') }}" class="account-link">
                 <i class="fa fa-user" aria-hidden="true"></i>
@@ -251,8 +246,7 @@
               Information
             </h5>
             <p>
-              Eligendi sunt, provident, debitis nemo, facilis cupiditate velit libero dolorum aperiam enim nulla iste maxime corrupti ad illo libero minus.
-            </p>
+              Furryna is the shop that sell pet accesories. Happy Shopping!!!            </p>
           </div>
         </div>
         <div class="col-md-3">

@@ -14,6 +14,7 @@ class Mail extends Model
         'body',
         'recipient_email',
         'sender_email',
+        'pname',
         'quantity',
         'status',
     ];
@@ -25,7 +26,7 @@ class Mail extends Model
 
     public function product()
     {
-        return $this->belongsTo(Product::class, foreignKey: 'product_id', ownerKey:'id');
+        return $this->belongsTo(Product::class, foreignKey: 'pname', ownerKey:'product_name');
     }
 
     public function carts()

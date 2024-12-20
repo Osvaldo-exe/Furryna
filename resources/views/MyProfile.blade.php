@@ -33,12 +33,7 @@
                             <li class="nav-list">
                                 <a class="nav-link" href="{{ route('Mail') }}">Mail</a>
                             </li>
-                            <li class="nav-list">
-                                <a class="nav-link" href="Why">Payment</a>
-                            </li>
-                            <li class="nav-list">
-                                <a class="nav-link" href="Testimonial">Settings</a>
-                            </li>
+                           
                             @auth
                             <form action="{{ route('LogoutUser') }}" method="POST">
                                 @csrf

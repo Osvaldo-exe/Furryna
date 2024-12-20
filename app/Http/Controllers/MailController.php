@@ -13,30 +13,41 @@ class MailController extends Controller
 {
     public function mailReceived(Request $request)
     {
-        $user = Auth::user();
+        if(Auth::check()){
+            $user = Auth::user();
+            $includeView = 'layouts.mailBody';
+            $receivedMails = Mail::where('recipient_email',$user->email)->get();
 
-        $receivedMails = Mail::all();
+            return view('layouts.Mail', compact('receivedMails', 'includeView'));
+        }
+        else{
+            $includeView = 'layouts.loginWarning';
+
+            return view('layouts.Mail', compact('includeView'));
+        }
+
         
-        return view('layouts.Mail', compact('receivedMails'));
     }
 
     public function sendMail(Request $request)
     {
         // Ambil data user yang sedang login
         $user = Auth::user();
-        $product = Product::all();
-        $carts = Cart::with('product')->where('product_name', $product->id)->get();
+        $carts = Cart::all();
 
         // Buat instance Mail
         foreach ($carts as $cart) {
             $mail = new Mail();
             $mail->subject = 'Order';
-            $mail->body = $cart->product->product_name;
-            $mail->recipient_email = $request->recipient_email;
+            $mail->body = $request->body;
+            $mail->recipient_email = $cart->product->product_owner;
             $mail->sender_email = $user->email;
-            $mail->body = $cart->quantity;
+            $mail->pname = $cart->item_name;
+            $mail->quantity = $cart->quantity;
 
             $mail->save();
+
+            Cart::destroy($cart->id);
         }
         
         return redirect()->route('Product');

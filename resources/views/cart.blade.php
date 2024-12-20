@@ -21,6 +21,7 @@
     <link href="css/responsive.css" rel="stylesheet" />
     <link rel="stylesheet" href="../css/cartStyle.css">
     <link rel="stylesheet" href="../css/productList.css">
+    <link rel="stylesheet" href="../css/calculation.css">
 
 </head>
 <body>
@@ -35,12 +36,7 @@
                     Furryna
                   </span>
                 </a>
-                <from class="search_form">
-                  <input type="text" class="form-control" placeholder="Search here...">
-                  <button class="" type="submit">
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                  </button>
-                </from>
+                
                 <div class="user_option_box">
                   <a href="{{ Route('MyProfile') }}" class="account-link">
                     <i class="fa fa-user" aria-hidden="true"></i>

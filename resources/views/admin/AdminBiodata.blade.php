@@ -10,55 +10,23 @@
 <body>
 <div class="container">
     <div class="row gutters">
-        <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
-            <div class="card h-100 profile-card">
-                <div class="card-body">
-                        <div class="user-avatar" style="display: grid; justify-content: center;">
-                            <img 
-                            src="
-                                @auth
-                                    ../images/Web-Images/{{Auth::user()->profile_picture}}
-                                @else
-                                    https://via.placeholder.com/100
-                                @endauth
-                            " alt="Profile" class="profile-image" id="profilePic"
-                            >
-                            <input type="file" name="" id="fileInput" style="display: none" value="{{Auth::user()->profile_picture}}">
-                            <button id="uploadButton" onclick="showUpload()">Change</button>
-                        </div>
-                </div>
-            </div>
-        </div>
         <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
-            <div class="card h-100 profile-card">
+            <div class="card h-100 profile-card" style="margin-left: 18rem">
                 <div class="card-body">
                     <div class="row gutters">
                         <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
                             <h4 id="lead-text">Personal Details</h4>
-                            <form action="{{ route('updateUser', Auth::user()->id) }}" method="POST">
-                                @csrf
-                                <div class="form-group">
+                                <div class="form-group" style="width: 20vw">
                                     <label for="fullName" class="font-title-inputform">Full Name</label>
-                                    <input type="text" class="input-form" name="name" placeholder="Enter full name" value="{{ Auth::user()->name }}">
+                                    <input type="text" class="input-form" name="name" placeholder="Enter full name" value="Admin" readonly>
                                 <div class="form-group">
                                     <label for="eMail" class="font-title-inputform">Email</label>
-                                    <input type="email" class="input-form" name="email" placeholder="Enter email" value="{{ Auth::user()->email }}">
+                                    <input type="email" class="input-form" name="email" placeholder="Enter email" value="{{ Auth::user()->email }}" readonly>
                                 </div>
                                 <div class="form-group">
                                     <label for="phone" class="font-title-inputform">Phone</label>
-                                    <input type="text" class="input-form" name="phone_number" placeholder="Enter phone number" value="{{Auth::user()->phone_number}}">
+                                    <input type="text" class="input-form" name="phone_number" placeholder="Enter phone number" value="0811 1111 1111" readonly>
                                 </div>
-                                <div class="form-group">
-                                    <label for="birthdate" class="font-title-inputform">Birthdate</label>
-                                    <input type="date" class="input-form" name="birthdate" placeholder="birthdate" value="{{ Auth::user()->birthdate}}">
-                                </div>
-                                <input type="file" name="profilePic" id="hiddenFile" value="" style="display: none">
-                                <div class="row gutters">
-                                    <div class="col-12 text-left">
-                                        <button id="updateButton" type="submit" class="btn-primary">Update</button>
-                                    </div>
-                                </div>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -124,45 +92,8 @@ document.getElementById('updateButton').addEventListener('click', function () {
         alert('Profile update failed, please ensure the data is filled correctly');
     }
 });
-
-document.addEventListener('DOMContentLoaded', function () {
-    const hiddenInput = document.getElementById('hiddenInput')
-    const fileInput = document.getElementById('fileInput');
-    const profilePic = document.querySelector('profile-image');
-});
-
-function showUpload() {
-    const fileInput = document.getElementById('fileInput');
-    const profilePic = document.getElementById('profilePic');
-
-    fileInput.click(); // Trigger input file
-
-    // Pastikan file dipilih
-    fileInput.addEventListener('change', function() {
-        if (fileInput.files && fileInput.files[0]) {
-            const reader = new FileReader();
-
-            // Ketika file selesai dibaca
-            reader.onload = function(e) {
-                // Menampilkan gambar yang dipilih
-                profilePic.src = e.target.result;
-            };
-
-            // Membaca file sebagai URL data
-            reader.readAsDataURL(fileInput.files[0]);
-        }
-    });
-
-    document.getElementById('hiddenInput').value = fileInput.value;
-}
-
-document.getElementById('fileInput').addEventListener('change', function() {
-    document.getElementById('hiddenInput').value = this.value; // Set hidden field dengan nama file
-    console.log(hiddenInput.value)
-});
-
-
 </script>
+
 
 <style>
 :root {
@@ -232,22 +163,6 @@ body {
 .btn-secondary:hover, .btn-primary:hover {
     background-color: #e5d630;
 }
-
-#uploadButton{
-    background: none;
-    border: none;
-    transition: 0.2s;
-}
-
-#uploadButton:focus{
-    border: none;
-    outline: none;
-}
-
-#uploadButton:hover{
-    color: #e5d630
-}
-
 </style>
 </body>
 </html>

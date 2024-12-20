@@ -15,7 +15,7 @@ return new class extends Migration
             $table->foreign('product_owner')
                   ->references('email')
                   ->on('users')
-                  ->onDelete('cascade'); // Atur tindakan jika data dihapus
+                  ->onDelete('cascade'); 
         });
     }
 

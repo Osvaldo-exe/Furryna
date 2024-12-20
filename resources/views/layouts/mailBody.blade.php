@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="../css/mail.css">
 </head>
 <body>
-    <div style="display: grid">
+    <div style="display: grid; align-content:center; margin-bottom: 11rem;">
         <div class="mailReceived">
             Received Mails
         </div>
-        <div class="mailContainer" style="max-height: 33rem; overflow:auto;">
+        <div class="mailContainer" style="">
             @include('layouts.mailCard')
         </div>
     </div>

@@ -30,6 +30,7 @@ tr td{
     color: black;
     align-items: center;
     text-align: center;
+    align-content: center;
     justify-content: center;
 }
 
@@ -109,4 +110,13 @@ input{
 .checkout:hover {
     background-color: #f3c93e;
     color: black;
+}
+
+.wrapper{
+    height: 80vh;
+    width: 42vw;
+    background: whitesmoke;
+    overflow-y: scroll;
+    max-width: 42vw;
+    max-height: 80vh;
 }

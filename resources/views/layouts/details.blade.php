@@ -83,15 +83,17 @@
             <h4 class="ownerName"><?php echo htmlspecialchars($products->User->name); ?></h4>
           </div>
           <?php echo htmlspecialchars($products->product_description)?>
-          <div class="comment-section">
+          {{-- <div class="comment-section">
             <div class="comment-input">
-              <textarea id="commentText" placeholder="  Write a comment..."></textarea>
-              <button id="post-comment">Post</button>
+              <form action="">
+                <textarea id="commentText" placeholder="  Write a comment..."></textarea>
+                <button id="post-comment" type="submit">Post</button>
+              </form>
             </div>
             <div class="comments-display" id="commentsDisplay">
               <!-- Comments will appear here -->
             </div>
-          </div>
+          </div> --}}
         </div>
         <div class="col-md-8 card">
           <div class="title">
@@ -125,10 +127,12 @@
                   <span id="total-price"><?php echo 'Rp '.(number_format(htmlspecialchars($products->price), 2,',','.'));?></span> 
                 </div>
               </div>
-              <form action="{{route('addToCart')}}" method="POST">
+              <form action="{{route('addToCart')}}" method="POST" id="cartForm">
                 @csrf
+
+                <input type="hidden" value="<?php echo htmlspecialchars($products->product_name)?>"  name="product_name"></sinput>
                 <input type="hidden" value="<?php echo htmlspecialchars($products->id)?>"  name="product_id"></sinput>
-                <input type="hidden" value="1" class="quantity" name="quantity"></sinput>
+                <input type="hidden" value="1" class="quantity" name="quantity" id="hiddenQuantity"></sinput>
                 <button  id="baten" type="submit">Add to Cart</button>
               </form>
 

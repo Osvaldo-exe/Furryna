@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/css/responsive.css"/>
     <link rel="stylesheet" href="/css/accountStyle.css">
 </head>
-<body class="accountBody">
+<body class="accountBody" style="overflow-y: hidden">
     <nav>
         <div class="header_bottom">
           <div class="container-fluid">
@@ -33,12 +33,7 @@
                             <li class="nav-list active">
                                 <a class="nav-link" href="{{ route('Mail') }}">Mail</a>
                             </li>
-                            <li class="nav-list">
-                                <a class="nav-link" href="Why">Payment</a>
-                            </li>
-                            <li class="nav-list">
-                                <a class="nav-link" href="Testimonial">Settings</a>
-                            </li>
+
                             @auth
                             <form action="{{ route('LogoutUser') }}" method="POST">
                                 @csrf
@@ -53,7 +48,7 @@
     </nav>
     
     @auth
-        @include('layouts.mailBody')
+        @include($includeView)
     @else
         @include('layouts.loginWarning')
     @endauth 

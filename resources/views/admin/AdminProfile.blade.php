@@ -11,8 +11,7 @@
     <link rel="stylesheet" href="/icon/css/all.min.css">
     <link rel="stylesheet" href="/css/responsive.css"/>
     <link rel="stylesheet" href="/css/accountStyle.css">
-    <link rel="stylesheet" href="/css/ProductList.css">
-</head>
+    <link rel="stylesheet" href="/css/login.css">
 <body class="accountBody">
     <nav>
         <div class="header_bottom">
@@ -25,16 +24,15 @@
                     </a>
                     <div class="listAccountMenuContainer" id="navbarSupportedContent">
                         <ul class="account-nav ">
-                            <li class="nav-list">
-                                <a class="nav-link" href="{{ route('MyProfile') }}">My Profile <span class="sr-only">(current)</span></a>
-                            </li>
                             <li class="nav-list active">
-                                <a class="nav-link" href="{{ route('MyProducts') }}"> My Products </a>
+                                <a class="nav-link" href="{{ route('AdminProfile') }}">My Profile <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-list">
+                                <a class="nav-link" href="{{ route('MyProducts') }}"> Users Products </a>
                             </li>
                             <li class="nav-list">
                                 <a class="nav-link" href="{{ route('Mail') }}">Mail</a>
                             </li>
-
                             @auth
                             <form action="{{ route('LogoutUser') }}" method="POST">
                                 @csrf
@@ -47,7 +45,13 @@
             </div>
         </div>
     </nav>
-
-    @include($includeView)   
+    <div class="profile-container" id="profile-container">
+        @auth
+            @include('admin.AdminBiodata')
+        @else
+            @include($includeView)
+        @endauth
+    </div>
+    <script src="../js/login-signup.js"></script>
 </body>
 </html>
