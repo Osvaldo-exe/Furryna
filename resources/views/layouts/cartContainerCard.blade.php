@@ -27,7 +27,7 @@
                     <td> 
                         <img src='../images/Products-Images/<?php echo htmlspecialchars($items->image); ?>' alt='Product Image' class='product-image'>
                     </td>
-                    <td style="width: 650px"><?php echo htmlspecialchars($items->product_description); ?></td>
+                    <td style="width: 600px"><?php echo htmlspecialchars($items->product_description); ?></td>
                     <td><?php echo 'Rp '.number_format(htmlspecialchars($items->price), 2,',','.') ?></td>
                     <td class='action-buttons'>
                         <form action="{{route('dropProduct', $items->id)}}" method='POST'>

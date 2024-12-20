@@ -76,12 +76,6 @@ Route::post('/Cart', [MailController::class, 'sendMail'])->name('Checkout');
 
 Route::delete('/Cart/{id}', [ProductsController::class, 'dropCart'])->name('dropCart');
 
-// Admin page
-// Route::middleware('auth')->group(function () {
-//     Route::get('/Account/MyProfile/Admin', function () {
-//         return view('admin.AdminProfile');
-//     })->name('AdminProfile');
-// });
 
 Route::get('/Account/MyProfile/Admin', function () {
     return view('admin.AdminProfile');

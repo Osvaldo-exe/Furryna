@@ -171,6 +171,10 @@
     align-self: self-start;
   }
 
+  .productDesc h1{
+    width: 25rem;
+  }
+
   .productDetails div img{
     max-height: 375px;
     max-width: 375px;
